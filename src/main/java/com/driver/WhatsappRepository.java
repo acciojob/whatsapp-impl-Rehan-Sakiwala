@@ -36,7 +36,7 @@ public class WhatsappRepository {
         //If the mobile number exists in database, throw "User already exists" exception
         //Otherwise, create the user and return "SUCCESS"
         if(userMobile.contains(mobile)){
-            throw new Exception("Mobile number already exist");
+            throw new Exception("User already exists");
         }
         else {
             userMobile.add(mobile);
@@ -91,11 +91,11 @@ public class WhatsappRepository {
         //Throw "You are not allowed to send message" if the sender is not a member of the group
         //If the message is sent successfully, return the final number of messages in that group.
         if(!groupUserMap.containsKey(group))
-            throw new Exception("Group doesn.t exist");
+            throw new Exception("You are not allowed to send message");
 
         List<User> users=groupUserMap.get(group);
         if(!users.contains(sender))
-            throw new Exception("Sender is not in the group");
+            throw new Exception("You are not allowed to send message");
 
         senderMap.put(message,sender);
 
@@ -112,9 +112,9 @@ public class WhatsappRepository {
         //Throw "User is not a participant" if the user is not a part of the group
         //Change the admin of the group to "user" and return "SUCCESS". Note that at one time there is only one admin and the admin rights are transferred from approver to user.
         if(!groupUserMap.containsKey(group))
-            throw new Exception("Group doesn't exist");
+            throw new Exception("Group does not exist");
         if(!adminMap.get(group).equals(approver))
-            throw new Exception("Approver doesn't have rights");
+            throw new Exception("Approver does not have rights");
         List<User> ulist=groupUserMap.get(group);
         if(!ulist.contains(user))
             throw new Exception("User is not a participant");
