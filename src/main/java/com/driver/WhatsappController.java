@@ -70,7 +70,7 @@ public class WhatsappController {
     }
 
     @DeleteMapping("/remove-user")
-    public int removeUser(User user) throws Exception{
+    public int removeUser(User user){
         //This is a bonus problem and does not contains any marks
         //A user belongs to exactly one group
         //If user is not found in any group, throw "User not found" exception
@@ -82,7 +82,7 @@ public class WhatsappController {
     }
 
     @GetMapping("/find-messages")
-    public String findMessage(Date start, Date end, int K) throws Exception{
+    public String findMessage(Date start, Date end, int K){
         //This is a bonus problem and does not contains any marks
         // Find the Kth latest message between start and end (excluding start and end)
         // If the number of messages between given time is less than K, throw "K is greater than the number of messages" exception
