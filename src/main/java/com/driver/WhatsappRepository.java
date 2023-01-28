@@ -42,7 +42,7 @@ public class WhatsappRepository {
             userMobile.add(mobile);
             User user = new User(name, mobile);
             userCount+=1;
-            return "New user created";
+            return "SUCCESS";
         }
     }
 
@@ -91,7 +91,7 @@ public class WhatsappRepository {
         //Throw "You are not allowed to send message" if the sender is not a member of the group
         //If the message is sent successfully, return the final number of messages in that group.
         if(!groupUserMap.containsKey(group))
-            throw new Exception("You are not allowed to send message");
+            throw new Exception("Group does not exist");
 
         List<User> users=groupUserMap.get(group);
         if(!users.contains(sender))
@@ -124,7 +124,7 @@ public class WhatsappRepository {
 
         adminMap.remove(group);
         adminMap.put(group,user);
-        return "success";
+        return "SUCCESS";
     }
 
 
