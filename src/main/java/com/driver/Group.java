@@ -11,10 +11,6 @@ public class Group {
         this.name = name;
         this.numberOfParticipants = numberOfParticipants;
     }
-
-    public Group(){
-
-    }
     //Getters And Setters
 
     public String getName() {
