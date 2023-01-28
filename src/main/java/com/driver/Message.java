@@ -7,7 +7,7 @@ public class Message {
     private String content;
     private Date timestamp;
 
-    public Message(int id, String content) {
+    public Message(int id, String content,Date date) {
         this.id = id;
         this.content = content;
         this.timestamp = new Date();
@@ -16,6 +16,7 @@ public class Message {
     public Message(){
 
     }
+
 
     //Getters and setters
 
