@@ -10,11 +10,11 @@ public class WhatsappService {
         return whatsappRepository.createUser(name,mobile);
     }
 
-    public Group createGroup(List<User> users) throws Exception{
+    public Group createGroup(List<User> users){
         return whatsappRepository.createGroup(users);
     }
 
-    public int createMessage(String content) throws Exception{
+    public int createMessage(String content){
         return whatsappRepository.createMessage(content);
     }
 
@@ -24,13 +24,5 @@ public class WhatsappService {
 
     public String changeAdmin(User approver, User user, Group group) throws Exception{
         return whatsappRepository.changeAdmin(approver,user,group);
-    }
-
-    public int removeUser(User user){
-        return 5;
-    }
-
-    public String findMessage(Date start, Date end, int k){
-        return "Found";
     }
 }

@@ -46,7 +46,7 @@ public class WhatsappRepository {
         }
     }
 
-    public Group createGroup(List<User> users) throws Exception{
+    public Group createGroup(List<User> users){
         // The list contains at least 2 users where the first user is the admin. A group has exactly one admin.
         // If there are only 2 users, the group is a personal chat and the group name should be kept as the name of the second user(other than admin)
         // If there are 2+ users, the name of group should be "Group count". For example, the name of first group would be "Group 1", second would be "Group 2" and so on.
@@ -56,16 +56,16 @@ public class WhatsappRepository {
         //For example: Consider userList1 = {Alex, Bob, Charlie}, userList2 = {Dan, Evan}, userList3 = {Felix, Graham, Hugh}.
         //If createGroup is called for these userLists in the same order, their group names would be "Group 1", "Evan", and "Group 2" respectively.
         if(users.size()<2)
-            throw new Exception("Group size must be > 2");
+            return null;
         User admin=users.get(0);
 
         if(!userMobile.contains(admin.getMobile()))
-            throw new Exception("Admin is not a registered user");
+            return null;
 
         for(int i=1; i<users.size();i++){
             User user=users.get(i);
             if(!userMobile.contains(user.getMobile()))
-                throw new Exception("Not a registered user");
+                return null;
         }
 
         String gName;
